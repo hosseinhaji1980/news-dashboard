@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from "./Pages/Sidebar";
 import Dashboard from './Pages/Dashboard';
-import Users from './Pages/Users';
+import Users from './Pages/Users/Users';
 import News from './Pages/News';
 import Categories from './Pages/Categories';
 import Settings from './Pages/Settings';
