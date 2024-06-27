@@ -1,32 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../Scss/Users.scss';
-import { getAllUsers } from '../../Services/Users';
-import Swal from 'sweetalert2';
 
-const GetUsers = () => {
-  const [users, setUsers] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const fetchedUsers = await getAllUsers();
-        setUsers(fetchedUsers);
-      } catch (error) {
-        setError(error);
-        console.error('Error fetching users:', error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  // Handle errors and display users if fetched successfully
-  if (error) {
-    Swal.fire('Error!', error.message, 'error');
-    return <div>Failed to load users!</div>;
-  }
-
+const GetUsers = ({ users }) => {
+  // Display users if fetched successfully
   if (!users.length) {
     return <div>Loading users...</div>;
   }
@@ -53,7 +30,6 @@ const GetUsers = () => {
           ))}
         </tbody>
       </table>
-   
     </div>
   );
 };

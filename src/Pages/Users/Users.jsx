@@ -14,6 +14,7 @@ const Users = () => {
     try {
       const fetchedUsers = await getAllUsers();
       setUsers(fetchedUsers);
+      console.log(users);
     } catch (error) {
       setError(error);
       console.error('Error fetching users:', error);
@@ -23,6 +24,10 @@ const Users = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
+
+  const handleUserCreated = () => {
+    fetchUsers();
+  };
 
   // Handle errors
   if (error) {
@@ -37,12 +42,12 @@ const Users = () => {
           <div className="col-xl-6">
             <h2 className="text-end fs-2 mb-4 mt-2 text-black">تعریف کاربر جدید</h2>
             <div className="row">
-              <CreateUser onUserCreated={fetchUsers} />
+              <CreateUser onUserCreated={handleUserCreated} />
             </div>
           </div>
           <div className="col-xl-6">
             <h2 className="text-end fs-2 mb-4 mt-2 text-black">جدول کاربران</h2>
-            <div className="row px-4 input-form text-light">
+            <div className="row px-4  text-light">
               <GetUsers users={users} />
             </div>
           </div>

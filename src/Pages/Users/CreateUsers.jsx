@@ -58,7 +58,7 @@ const CreateUser = ({ onUserCreated }) => {
         password: '',
         confirmPassword: '',
       });
-      onUserCreated(); // به‌روزرسانی لیست کاربران پس از ایجاد کاربر جدید
+      onUserCreated(); 
     } catch (error) {
       console.error('Error creating user:', error);
       Swal.fire({
@@ -136,7 +136,7 @@ const CreateUser = ({ onUserCreated }) => {
             </div>
           </div>
         </div>
-        <div className="row d-flex justify-content-between mt-4">
+        <div className="row d-flex justify-content بین mt-4">
           <div className="col-xl-12 text-end">
             <div className="d-flex justify-content-around">
               <h4 className="fs-sm">کلمه عبور</h4>
