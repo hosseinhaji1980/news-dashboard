@@ -29,7 +29,8 @@
   }
   @import './Components/Main/Main.scss';
   @import './Components/Header/Header.scss';
-  @import './Pages/Scss/Users.scss';
+  @import './Pages/Users/Users.scss';
+  @import './Pages/Slidebar.scss';
   
   * {
     margin: 0;
@@ -39,7 +40,26 @@
     font-size: 16px;
     font-family: shabnam;
   }
-  
+  .container-fluid {
+    display: flex;
+    background-color: #272C4A;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    font-family: shabnam;
+    font-size: 14px;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+}
   .news-title h5{
     font-family: shabnam-bold;
     font-size: 14px;
@@ -105,140 +125,5 @@
   
   
   
-  
-  /* .container {
-    padding: 10px;
-    max-width: 40rem;
-    margin: 0 auto;
-    display: flex;
-    width: 90%;
-    border-radius: 15px;
-    background: black;
-    color: white;
-    font-size: 20px;
-    letter-spacing: 0.5px;
-  } */
-  
-  .buttonsContainer {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-    gap: 10px;
-  }
-  .button {
-    padding: 0.8rem 1rem;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0 8px 30px rgb(0, 0, 0, 0.12);
-    background: #fff;
-    color: gray;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  .button:hover {
-    box-shadow: inset -12px -8px 40px #46464620;
-  }
-  
-  .codeMirror {
-    justify-content: center;
-    border-radius: 5px;
-    width: 100%;
-  }
-  .sidebar {
-    background: #282336;
-    color: #fff;
-    height: 100vh;
-    width: 200px;
-    transition: all 0.5s;
-  }
-  
-  .top_section {
-    display: flex;
-    align-items: center;
-    padding: 20px 15px;
-  }
-  
-  .logo {
-    font-size: 30px;
-  }
-  
-  .bars {
-    display: flex;
-    font-size: 25px;
-    margin-left: 50px;
-  }
-  
-  .link {
-    display: flex;
-    color: #fff;
-    padding: 10px 15px;
-    gap: 15px;
-    transition: all 0.5s;
-    text-decoration: none;
-  }
-  
-  .link:hover {
-    background: rgb(238, 240, 241);
-    color: #000;
-    transition: all 0.5s;
-  }
-  
-  .active {
-    background: rgb(244, 237, 247);
-    color: #000;
-  }
-  
-  .icon,
-  .link_text {
-    font-size: 16px;
-    font-family: shabnam;
-  }
-  .container-fluid {
-    display: flex;
-  }
-  
-  .sidebar {
-    width: 250px;
-    transition: width 0.3s;
-    /* سایر استایل‌ها */
-  }
-  
-  .sidebar.closed {
-    width: 80px;
-    transition: width 0.3s;
-    /* سایر استایل‌ها */
-  }
-  
-  .main {
-    flex-grow: 1;
-    padding: 20px;
-    transition: margin-left 0.3s;
-    /* سایر استایل‌ها */
-  }
-  
-  .link {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .link.active {
-    background-color: #4ddd50;
-  }
-  
-  .icon {
-    margin-right: 10px;
-  }
-  
-  
-  .top_section {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-  }
-  
-  .bars {
-    cursor: pointer;
-  }
+
+ 

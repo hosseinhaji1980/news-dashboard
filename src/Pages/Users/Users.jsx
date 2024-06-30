@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './../Scss/Users.scss';
+import './Users.scss';
 import CreateUser from './CreateUsers';
 import GetUsers from './GetUsers';
 import { getAllUsers } from '../../Services/Users';
@@ -36,21 +36,29 @@ const Users = () => {
   }
 
   return (
-    <div className="user-form-container p-4">
+    <div className="user-form">
       <div className="form-wrapper">
-        <div className="row px-4">
-          <div className="col-xl-6">
-            <h2 className="text-end fs-2 mb-4 mt-2 text-black">تعریف کاربر جدید</h2>
-            <div className="row">
-              <CreateUser onUserCreated={handleUserCreated} />
+    <div className="row g-3">
+        <div className="col-xl-5 create-user mt-4 rounded-4">
+            <h2 className="text-end fs-2  mt-2 text-light">تعریف کاربر جدید</h2>
+            <div className="row p-5">
+                <CreateUser onUserCreated={handleUserCreated} />
             </div>
-          </div>
-          <div className="col-xl-6">
-            <h2 className="text-end fs-2 mb-4 mt-2 text-black">جدول کاربران</h2>
-            <div className="row px-4  text-light">
-              <GetUsers users={users} />
+        </div>
+        <div className="col-xl-5  mt-4 rounded-4">
+            <h2 className="text-end fs-2 mt-2 text-light">جدول کاربران</h2>
+            <div className="row  user-list">
+                <GetUsers users={users} />
             </div>
-          </div>
+        </div>
+    </div>
+      </div>
+      <div className="row">
+        <div className="col-6 bg-light px-4">
+          <h2>werwer</h2>
+        </div>
+        <div className="col-6  px-4">
+          <h2 className='bg-info'>ewrwer</h2>
         </div>
       </div>
     </div>

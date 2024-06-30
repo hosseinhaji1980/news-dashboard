@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './../Scss/Users.scss';
+import './Users.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const GetUsers = ({ users }) => {
   // Display users if fetched successfully
@@ -9,8 +10,10 @@ const GetUsers = ({ users }) => {
   }
 
   return (
-    <div>
-      <table className="table table-responsive table-striped table-hover ">
+    <div className='user-list'>
+
+      <table className=''  style={{ overflowX: 'auto', maxHeight: '1000px' } }>
+        
         <thead>
           <tr>
             <th>نام</th>
@@ -20,8 +23,8 @@ const GetUsers = ({ users }) => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
-            <tr key={user.id}>
+          {users.map((user, index) => (
+            <tr key={user.id} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
               <td>{user.first_name}</td>
               <td>{user.last_name}</td>
               <td>{user.email}</td>

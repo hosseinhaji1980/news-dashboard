@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './../Scss/Users.scss';
+import './Users.scss';
 import { createUser } from '../../Services/Users';
 import Swal from 'sweetalert2';
 
@@ -70,7 +70,7 @@ const CreateUser = ({ onUserCreated }) => {
   };
 
   return (
-    <div className="col-xl-12 text-end border text-light input-form px-4">
+    <div className="col-xl-12 text-end border rounded-1 text-light ">
       <form onSubmit={handleSubmit}>
         <div className="row d-flex justify-content-between">
           <div className="col-xl-12 text-end mt-3">
