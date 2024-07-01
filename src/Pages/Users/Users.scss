@@ -1,214 +1,70 @@
-
-
-
-.users-list{
-    // background-color: #10163A;
-    background-color: #26973e;
+.users{
+    background-color: #10163A;
+    h3{
+        font-size: 25px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    h4{
+        font-size: 15px;
+    }
+    .email{
+        font-family: 'Times New Roman', Times, serif;
+        color: rgb(171, 245, 149);
+        padding-left: 20px;
+    }
 }
-
-.create-user{
-    // background-color: #10163A;
-    background-color: #b8bfe6;
-
-}
-// 
-
-.mb-3 .fs-4 .mt-3 h1,
-h2,
-h3,
-h4,
-h5 {
-    font-size: 14px;
-}
-
-.card .h-100 h4,
-h4 {
-    font-family: shabnam-bold;
-    font-size: 14px;
-}
-
-.progress-segment {
-    position: relative;
-}
-
-.progress-value {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.icon-large {
-    font-size: 4rem;
-    text-align: center;
-}
-
-.space-between-icons {
-    margin-right: 20px;
-    /* یا هر مقدار دلخواه دیگری برای ایجاد فاصله */
-}
-
-.ag-theme-quartz {
-    --ag-header-height: 30px;
-    --ag-header-foreground-color: white;
-    --ag-header-background-color: black;
-    --ag-header-cell-hover-background-color: rgb(80, 40, 140);
-    --ag-header-cell-moving-background-color: rgb(80, 40, 140);
-}
-
-.ag-theme-quartz .ag-header {
-    font-family: cursive;
-}
-
-.ag-theme-quartz .ag-header-group-cell {
-    font-weight: normal;
-    font-size: 22px;
-}
-
-.ag-theme-quartz .ag-header-cell {
-    font-size: 18px;
-}
-
-.super-app-theme--header {
-    font-family: shabnam-bold;
-    font-weight: 500;
-    text-align: center;
-}
-
-.cell-accepted {
-    background-color: #87dd8a;
-    font-family: shabnam;
-}
-
-.cell-inOrder {
-    background-color: #ffeb3b;
-}
-
-.cell-doing {
-    background-color: #72b1e4;
-}
-
-.cell-rejected {
-    background-color: #f82d1f;
-    text-align: center;
-    color: #f82d1f;
-}
-
-.cell-rejected span {
-    text-align: center;
-    color: #f82d1f;
-}
-
 .container-fluid {
     display: flex;
 }
+ table{
+    border: 2px solid #858181;
 
-.sidebar .link {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    color: #f7f5f5;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
 }
 
-.active {
-    background-color: #b6bde6;
-}
+th, td {
+    // border: 1px solid rgb(235, 215, 215);
+    border-bottom: 1px solid #75c922;
 
-.sidebar .link:hover {
-    background-color: #b6bde6;
-}
+    // border-radius: 10px;
+  }
+  thead{
+    border: 2px solid #858181;
 
-#SvgjsG13865 {
-    padding: 20px;
-    font-family: shabnam;
-    margin-left: 0px;
-}
-
-#chart {
-    overflow-y: auto;
-    max-height: 550px;
-}
-
-#chart tspan {
-    font-size: 12px;
-    text-align: right;
-}
-
-.MuiTablePagination-root.css-rtrcn9-MuiTablePagination-root {
-    display: none;
-    color: #837e7e;
-}
-
-.MuiDataGrid-footerContainer.MuiDataGrid-withBorderColor.css-wop1k0-MuiDataGrid-footerContainer {
-    background-color: #180350;
-}
-
-.orders-table {
-    overflow: auto;
-}
-
-.controls-container {
-    display: flex;
-    align-items: center;
-    background-color: rgb(241, 245, 245);
-    border-radius: 50px;
-    padding: 10px;
-    font-family: gandom;
-    margin-top: 7px;
-}
-
-.pagination-container * {
-    margin-right: 10px;
-    /* تنظیم فاصله بین Pagination و Select */
-    font-family: shabnam;
-}
-
-.select-container * {
-    margin-left: 10px;
-    /* تنظیم فاصله بین Pagination و Select */
-    border: none;
-    font-family: gandom;
-}
-
-.input-form {
-    border-radius: 2em 20px 2.5em 0.2in;
-    // background: #180350;
-}
-
-.form-wrapper h2 {
-    position: relative;
-    display: flex;
-    height: 80px;
-    align-items: center;
+  }
+  th, td,tr {
+    
+    border-bottom:  #80d42c;
     justify-content: center;
-    // background: #f3d6328a;
-    border-radius: 0 15px 15px 15px;
-    color: rgb(160, 1, 1);
-
+    align-items: center;
+  }
+.user-form-container{
+    background-color: #1b0e3b;
 }
-// th, td {
-//     border: 1px solid rgb(235, 215, 215);
-//     border-radius: 10px;
-//   }
-//   th, td {
-//     border-color: #96D4D4;
-//   }
-// .user-form-container{
-//     background-color: #1b0e3b;
-// }
 .even-row {
-    background-color: #1b0e3b !important;
-    color: #F0F5F9;
+    // background-color: #4b2e83; /* بنفش روشن‌تر */
+    border-bottom: 1px solid #504f4f; /* خط حاشیه خاکستری */
+
+    color: #ffffff; /* متن سفید برای خوانایی بهتر */
+
   }
   
+  .odd-row:hover,.even-row:hover {
+    // background-color: #e4a101; /* زرد-نارنجی */
+    color: #c52222; /* متن سیاه برای خوانایی بهتر */
+    background-color: rgb(120, 197, 207);
+  }
   .odd-row {
-    background-color: #2a164d !important;
-    color: #F0F5F9;
-  }
-  td{
-    border-color:white ;
+    // background-color: #e4a101; /* زرد-نارنجی */
+    color: #ffffff; /* متن سیاه برای خوانایی بهتر */
+    border-bottom: 1px solid #504f4f; /* خط حاشیه خاکستری */
+
   }
   
-  
+
+  .users-table {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    margin-bottom: 20px;
+  }

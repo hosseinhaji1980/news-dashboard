@@ -14,7 +14,6 @@ const Users = () => {
     try {
       const fetchedUsers = await getAllUsers();
       setUsers(fetchedUsers);
-      console.log(users);
     } catch (error) {
       setError(error);
       console.error('Error fetching users:', error);
@@ -37,30 +36,15 @@ const Users = () => {
 
   return (
     <div className="user-form">
-      <div className="form-wrapper">
-    <div className="row g-3">
-        <div className="col-xl-5 create-user mt-4 rounded-4">
-            <h2 className="text-end fs-2  mt-2 text-light">تعریف کاربر جدید</h2>
-            <div className="row p-5">
-                <CreateUser onUserCreated={handleUserCreated} />
-            </div>
+      <div className="row d-flex justify-content-between  p-1">
+      <div className="col-xl-5 text-light users p-5 rounded-3">
+          <CreateUser onUserCreated={handleUserCreated} />
         </div>
-        <div className="col-xl-5  mt-4 rounded-4">
-            <h2 className="text-end fs-2 mt-2 text-light">جدول کاربران</h2>
-            <div className="row  user-list">
+        <div className="col-xl-6 text-light users rounded-3">
                 <GetUsers users={users} />
-            </div>
-        </div>
-    </div>
-      </div>
-      <div className="row">
-        <div className="col-6 bg-light px-4">
-          <h2>werwer</h2>
-        </div>
-        <div className="col-6  px-4">
-          <h2 className='bg-info'>ewrwer</h2>
         </div>
       </div>
+
     </div>
   );
 };

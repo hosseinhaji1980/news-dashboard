@@ -70,7 +70,8 @@ const CreateUser = ({ onUserCreated }) => {
   };
 
   return (
-    <div className="col-xl-12 text-end border rounded-1 text-light ">
+    <div className="col-xl-12 text-end  rounded-1 text-light ">
+            <h3 className='text-center'>تعریف کاربر</h3>
       <form onSubmit={handleSubmit}>
         <div className="row d-flex justify-content-between">
           <div className="col-xl-12 text-end mt-3">
