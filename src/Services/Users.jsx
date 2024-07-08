@@ -5,7 +5,7 @@ const token = process.env.REACT_APP_TOKEN;
 
 export const getAllUsers = async () => {
   try {
-    const response = await axios.get(API_URL, {
+    const response = await axios.get(`${API_URL}/users`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     console.log(response.data);

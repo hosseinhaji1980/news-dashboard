@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Users.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const GetUsers = ({ users }) => {
   // Display users if fetched successfully

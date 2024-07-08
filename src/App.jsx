@@ -4,7 +4,7 @@ import Sidebar from "./Pages/Sidebar";
 import Dashboard from './Pages/Dashboard';
 import Users from './Pages/Users/Users';
 import News from './Pages/News';
-import Categories from './Pages/Categories';
+import Categories from './Pages/Categories/Categories';
 import Settings from './Pages/Settings';
 import About from './Pages/About';
 
