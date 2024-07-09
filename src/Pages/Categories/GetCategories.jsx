@@ -25,12 +25,27 @@ const Categories = () => {
 
   return (
     <div>
-      <h1>Categories</h1>
-      <ul>
+      <h2>دسته بندی</h2>
+      <table className='users-table mb-6'  style={{ overflowX: 'auto', maxHeight: '1000px' } }>
+        <thead >
+          <tr className='text-center'>
+            <th>عنوان</th>
+            <th>توضیحات</th>
+          </tr>
+        </thead>
+        <tbody>
         {categories.map((category, index) => (
-          <li key={category.id}>{category.name}</li>
-        ))}
-      </ul>
+            <tr key={category.id} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
+              <td className='px-2'>{category.name}</td>
+              <td className='px-2'>{category.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+
+
+
     </div>
   );
 };

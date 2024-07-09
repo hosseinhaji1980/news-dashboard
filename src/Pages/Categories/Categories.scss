@@ -1,5 +1,8 @@
+@import './../../colorVariables.scss';
+
 .categories{
-    background-color: #10163A;
+    background-color: #272C4A;
+
     height: 100vh;
     width: 100%;
     h1,h2{
@@ -8,11 +11,14 @@
         font-size: larger;
     }
 
-    .category{
-        background-color: aqua;
+    .create-category{
+        background-color:$secondary-color;
     }
-   
 
+    .category-list{
+        background-color:$secondary-color;
+    
+   }
 }
 li{
     color: aliceblue;}
