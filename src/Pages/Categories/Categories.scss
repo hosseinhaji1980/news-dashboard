@@ -13,10 +13,17 @@
 
     .create-category{
         background-color:$secondary-color;
+        label{
+            color: white;
+        }
     }
 
     .category-list{
         background-color:$secondary-color;
+        label{
+            color: white;
+
+        }
     
    }
 }

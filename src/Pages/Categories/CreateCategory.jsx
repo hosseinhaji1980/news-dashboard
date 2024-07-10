@@ -53,7 +53,7 @@ const CreateCategory = () => {
           {/* <form onSubmit={handleSubmit}> */}
           <form >
             <div className="row d-flex justify-content-between">
-              <div className="col">
+              <div className="col-xl-6">
                 <label className='mt-4'> عنوان دسته بندی</label>
                 <input
                   type='text'
@@ -63,6 +63,10 @@ const CreateCategory = () => {
                 //   onChange={handleChange}
                   
                 />
+                
+              </div>
+              <div className="col-xl-6">
+                
                 <label>دسته بندی اصلی</label>
                 <input
                   type='text'
