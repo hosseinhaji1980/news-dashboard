@@ -1,87 +1,109 @@
-import React, { useState, useEffect } from 'react';
-import { List, ListItem, ListItemText, Collapse } from '@mui/material';
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import React, { useEffect, useState } from 'react';
+import Box from '@mui/material/Box';
+import { RichTreeView } from '@mui/x-tree-view/RichTreeView';
 import { getAllCategories } from './../../Services/Categories';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
-const TreeView = () => {
-  const [categories, setCategories] = useState([]);
-  const [expandedNodes, setExpandedNodes] = useState([]);
+export default function BasicRichTreeView() {
+  const [treeData, setTreeData] = useState([]);
+  const [contextMenu, setContextMenu] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const categories = await getAllCategories();
-        const { structuredCategories, parentIds } = buildCategoryTree(categories);
-        setCategories(structuredCategories);
-        setExpandedNodes(parentIds); // Set initial expanded nodes to all parent IDs
-      } catch (error) {
-        console.error("There was an error fetching the categories!", error);
-      }
-    };
-
     fetchCategories();
   }, []);
 
-  const buildCategoryTree = (categories) => {
-    const categoryMap = {};
-    const rootCategories = [];
-    const parentIds = new Set();
-
-    categories.forEach(category => {
-      categoryMap[category.category_id] = {
-        ...category,
-        children: []
-      };
-    });
-
-    categories.forEach(category => {
-      if (category.parent_category_id !== null) {
-        categoryMap[category.parent_category_id].children.push(categoryMap[category.category_id]);
-        parentIds.add(category.parent_category_id); // Add parent ID to set
-      } else {
-        rootCategories.push(categoryMap[category.category_id]);
-      }
-    });
-
-    return { structuredCategories: rootCategories, parentIds: Array.from(parentIds) };
-  };
-
-  const handleClick = (nodeId) => {
-    const isNodeExpanded = expandedNodes.includes(nodeId);
-    if (isNodeExpanded) {
-      setExpandedNodes(expandedNodes.filter(id => id !== nodeId));
-    } else {
-      setExpandedNodes([...expandedNodes, nodeId]);
+  const fetchCategories = async () => {
+    try {
+      const data = await getAllCategories();
+      const formattedData = formatDataToTree(data);
+      setTreeData(formattedData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
   };
 
-  const renderTree = (nodes) => (
-    nodes.map((node) => (
-      <React.Fragment key={node.category_id}>
-        <ListItem button onClick={() => handleClick(node.category_id)}>
-          <ListItemText primary={node.category_name} />
-          {node.children.length > 0 ? (expandedNodes.includes(node.category_id) ? <ExpandLess /> : <ExpandMore />) : null}
-        </ListItem>
-        {node.children.length > 0 && (
-          <Collapse in={expandedNodes.includes(node.category_id)} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {renderTree(node.children)}
-            </List>
-          </Collapse>
-        )}
-      </React.Fragment>
-    ))
-  );
+  const formatDataToTree = (data) => {
+    const categories = data.reduce((acc, category) => {
+      const itemId = category.category_id.toString();
+      acc[itemId] = { ...category, id: itemId, label: category.category_name, children: [] };
+      return acc;
+    }, {});
+
+    const root = [];
+    data.forEach((category) => {
+      const itemId = category.category_id.toString();
+      const parentId = category.parent_category_id ? category.parent_category_id.toString() : null;
+
+      if (parentId === null) {
+        root.push(categories[itemId]);
+      } else {
+        if (!categories[parentId].children) {
+          categories[parentId].children = [];
+        }
+        categories[parentId].children.push(categories[itemId]);
+      }
+    });
+
+    return root;
+  };
+
+  const handleContextMenu = (event, category) => {
+    event.preventDefault();
+    setContextMenu({
+      mouseX: event.clientX - 2,
+      mouseY: event.clientY - 4,
+    });
+    setSelectedCategory(category);
+    console.log(category); // برای بررسی کنسول
+  };
+
+  const handleClose = () => {
+    setContextMenu(null);
+  };
+
+  const handleAddChild = () => {
+    if (!selectedCategory) return; // بررسی برای اطمینان از وجود مقدار selectedCategory
+  
+    console.log('Add child to', selectedCategory.id); // چاپ شناسه دسته‌بندی
+    handleClose();
+  };
+
+  const handleDeleteCategory = () => {
+    if (!selectedCategory) return; // بررسی برای اطمینان از وجود مقدار selectedCategory
+    console.log('Delete category', selectedCategory);
+    handleClose();
+  };
+
+  const handleEditCategory = () => {
+    if (!selectedCategory) return; // بررسی برای اطمینان از وجود مقدار selectedCategory
+    console.log('Edit category', selectedCategory);
+    handleClose();
+  };
 
   return (
-    <List
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      sx={{ width: '100%', maxWidth: 400, bgcolor: 'background.paper' }}
-    >
-      {renderTree(categories)}
-    </List>
+    <Box sx={{ minHeight: 352, minWidth: 250 }}>
+      <RichTreeView 
+        items={treeData}
+        getItemId={(item) => item.id}
+        onContextMenu={(event, item) => handleContextMenu(event, item)}
+      />
+      <Menu
+        open={contextMenu !== null}
+        onClose={handleClose}
+        anchorReference="anchorPosition"
+        anchorPosition={
+          contextMenu !== null
+            ? { top: contextMenu.mouseY, left: contextMenu.mouseX }
+            : undefined
+        }
+      >
+        
+        <MenuItem onClick={handleAddChild}>اضافه کردن فرزند</MenuItem>
+        <MenuItem onClick={handleDeleteCategory}>حذف دسته بندی</MenuItem>
+        <MenuItem onClick={handleEditCategory}>ویرایش</MenuItem>
+      </Menu>
+    </Box>
   );
-};
-
-export default TreeView;
+}

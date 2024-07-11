@@ -8,7 +8,7 @@ export const getAllCategories = async () => {
     const response = await axios.get(`${API_URL}/categories`, {
       headers: { Authorization: `Bearer ${token}` }
     });
-    // console.log(response.data);
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error('Error getting users:', error);
@@ -27,24 +27,17 @@ export const createCategory = async (category) => {
   }
 };
 
-export const deleteUser = async (id) => {
-  try {
-    const response = await axios.delete(`${API_URL}/${id}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    console.log(response.data);
-  } catch (error) {
-    console.error('Error deleting user:', error);
-  }
+export const addCategory = async (newCategory) => {
+  const response = await axios.post(`${API_URL}/categories`, newCategory);
+  return response.data;
 };
 
-export const updateUser = async (id, user) => {
-  try {
-    const response = await axios.put(`${API_URL}/${id}`, user, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    console.log(response.data);
-  } catch (error) {
-    console.error('Error updating user:', error);
-  }
+export const editCategory = async (categoryId, updatedCategory) => {
+  const response = await axios.put(`${API_URL}/categories/${categoryId}`, updatedCategory);
+  return response.data;
+};
+
+export const deleteCategory = async (categoryId) => {
+  const response = await axios.delete(`${API_URL}/categories/${categoryId}`);
+  return response.data;
 };

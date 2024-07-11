@@ -1,7 +1,9 @@
 @import './../../colorVariables.scss';
+@import './../../fonts.scss';
 
 .categories{
     background-color: #272C4A;
+    font-family: 'shabnam', sans-serif;
 
     height: 100vh;
     width: 100%;
@@ -13,11 +15,30 @@
 
     .create-category{
         background-color:$secondary-color;
+        font-family: 'shabnam' !important;
         label{
             color: white;
         }
-    }
+        .MuiTreeItem-iconContainer .MuiTreeItem-label {
+            color: aqua;
+        }
+        .MuiTreeItem-label {
+            font-family: 'shabnam';
+            font-size: 14px; // تنظیم اندازه فونت
+            color: #ffffff; // تنظیم رنگ فونت
+          }
+          .MuiTreeItem-content {
+            color: #71cc9f;
+          }
+          .MuiTreeItem-root.Mui-selected .MuiTreeItem-label {
+            font-family: 'shabnam-bold', sans-serif; // تنظیم فونت برای آیتم انتخاب شده
+            color: #b83333; // تنظیم رنگ فونت
 
+          }
+        
+    }
+    
+      
     .category-list{
         background-color:$secondary-color;
         label{
