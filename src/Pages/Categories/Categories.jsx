@@ -13,9 +13,6 @@ const Categories = () => {
       <div className="col-xl-6 category-list rounded-3">
         <GetCategory/>
       </div>
-
-      {/* <CreateCategory/> */}
-      {/* <h1>wqeqwe</h1> */}
     </div>
   );
 };
