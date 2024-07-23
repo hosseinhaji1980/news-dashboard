@@ -37,15 +37,38 @@
           }
         
     }
-    
-      
-    .category-list{
+    .category-list {
         background-color:$secondary-color;
+        font-family: 'shabnam-bold';
         label{
             color: white;
-
+            
         }
-    
+        .MuiTypography-root {
+            font-family: 'shabnam';
+            font-size: 14px;
+        }
+   
+        .MuiCheckbox-root {
+            color: #ffffff; 
+        }
+        
+        .MuiCheckbox-root.Mui-checked {
+            color: #ffffff; 
+        }
+        
+        
+        .MuiCheckbox-root .MuiSvgIcon-root {
+            fill: #ffffff; 
+        }
+        .MuiBox-root {
+            margin-right: 20px;
+        }
+        /* تورفتگی برای چک‌باکس‌های فرزند */
+.MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd .MuiFormControlLabel-root {
+    margin-right: 20px; /* تنظیم مقدار تورفتگی */
+}
+
    }
 }
 li{
