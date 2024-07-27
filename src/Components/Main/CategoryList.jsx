@@ -81,7 +81,7 @@ export default function IndeterminateCheckbox() {
   }
 
   return (
-    <div>
+    <div className='category-list'>
       {categories.map(category => (
         <div key={category.category_id}>
           <FormControlLabel

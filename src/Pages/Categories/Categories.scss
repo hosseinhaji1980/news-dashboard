@@ -2,7 +2,7 @@
 @import './../../fonts.scss';
 
 .categories{
-    background-color: #272C4A;
+    background-color: #3b4a27;
     font-family: 'shabnam', sans-serif;
 
     height: 100vh;
@@ -13,7 +13,7 @@
         font-size: larger;
     }
 
-    .create-category{
+    .category-list{
         background-color:$secondary-color;
         font-family: 'shabnam' !important;
         label{
@@ -37,6 +37,10 @@
           }
         
     }
+    
+}
+li{
+    color: aliceblue;}
     .category-list {
         background-color:$secondary-color;
         font-family: 'shabnam-bold';
@@ -70,6 +74,3 @@
 }
 
    }
-}
-li{
-    color: aliceblue;}

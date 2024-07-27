@@ -6,7 +6,7 @@ const News = () => {
     <div>
       <h2 className='text-light'>اخبار</h2>
       <div className="row border-1">
-      <div className="col-xl-8 bg-light">
+      <div className="col">
         <NewsComponent/>
       </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import GetCategory from '../../Components/Main/GetCategories';
+import GetCategory from '../../Components/Main/CategoryList';
 import CreateCategory from './CreateCategory';
 import TreeView from './TreeView';
 

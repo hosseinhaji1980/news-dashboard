@@ -1,46 +1,109 @@
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .app{
+// App.scss
+@import './../../../colorVariables.scss';
+@import './../../../fonts.scss';
+@import './../../../Pages/Categories/Categories.scss';
+.container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 100vh;
+  // background-color: #ECECEC;
+  direction: rtl;
+}
 
-      .row {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        width: 100%;
-        max-width: 600px;
-      }
-      
- 
-  label {
+.form {
+  background-color: $secondary-color;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  // max-width: 800px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 5px;
+
+  &.cancel {
+    background-color: #e74c3c;
+    color: white;
+
+    &:hover {
+      background-color: #c0392b;
+    }
+  }
+
+  &.submit {
+    background-color: #27ae60;
+    color: white;
+
+    &:hover {
+      background-color: #2ecc71;
+    }
+  }
+
+  &.upload {
+    background-color: #2980b9;
+    color: white;
+
+    &:hover {
+      background-color: #3498db;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.col {
+  flex: 1;
+  margin: 0 5px;
+
+  & > .label {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
-  
-  input, textarea, select, button {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    width: auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
   }
 }
