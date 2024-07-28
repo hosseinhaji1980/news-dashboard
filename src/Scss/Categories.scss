@@ -1,0 +1,69 @@
+@import './colorVariables.scss';
+@import './fonts.scss';
+.categories {
+    background-color: #3b4a27;
+    font-family: 'shabnam', sans-serif;
+    height: 100vh;
+    width: 100%;
+    h1,
+    h2 {
+        padding-top: 30px 200px 100px 15px;
+        color: aliceblue;
+        font-size: larger;
+    }
+    .category-list {
+        background-color: $secondary-color;
+        font-family: 'shabnam' !important;
+        label {
+            color: white;
+        }
+        .MuiTreeItem-iconContainer .MuiTreeItem-label {
+            color: aqua;
+        }
+        .MuiTreeItem-label {
+            font-family: 'shabnam';
+            font-size: 14px; // تنظیم اندازه فونت
+            color: #ffffff; // تنظیم رنگ فونت
+        }
+        .MuiTreeItem-content {
+            color: #71cc9f;
+        }
+        .MuiTreeItem-root.Mui-selected .MuiTreeItem-label {
+            font-family: 'shabnam-bold', sans-serif; // تنظیم فونت برای آیتم انتخاب شده
+            color: #b83333; // تنظیم رنگ فونت
+        }
+    }
+}
+
+li {
+    color: aliceblue;
+}
+
+.category-list {
+    background-color: $secondary-color;
+    font-family: 'shabnam-bold';
+    label {
+        color: white;
+    }
+    .MuiTypography-root {
+        font-family: 'shabnam';
+        font-size: 14px;
+    }
+    .MuiCheckbox-root {
+        color: #ffffff;
+    }
+    .MuiCheckbox-root.Mui-checked {
+        color: #ffffff;
+    }
+    .MuiCheckbox-root .MuiSvgIcon-root {
+        fill: #ffffff;
+    }
+    .MuiBox-root {
+        margin-right: 20px;
+    }
+    /* تورفتگی برای چک‌باکس‌های فرزند */
+    .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd .MuiFormControlLabel-root {
+        margin-right: 20px;
+        /* تنظیم مقدار تورفتگی */
+    }
+}

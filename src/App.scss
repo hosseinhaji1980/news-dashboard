@@ -1,50 +1,45 @@
 @font-face {
-    font-family: shabnam;
-    font-style: normal;
-    src: url("../public/fonts/shabnam/Shabnam-Light-FD.woff") format("woff");
-  }
-  
-  @font-face {
-    font-family: gandom;
-    font-style: normal;
-    src: url("../public/fonts/gandom/Gandom-FD.woff") format("woff");
-  }
-  
-  @font-face {
-    font-family: nahid;
-    font-style: normal;
-    src: url("../public/fonts/nahid/Nahid-FD.woff") format("woff");
-  }
-  
-  @font-face {
-    font-family: sahel;
-    font-style: normal;
-    src: url("../public/fonts/sahel/Sahel-FD.woff") format("woff");
-  }
-  
-  @font-face {
-    font-family: shabnam-bold;
-    font-style: normal;
-    src: url("../public/fonts/shabnam/Shabnam-Bold-FD.woff") format("woff");
-  }
-  @import './Components/Main/Main.scss';
-  @import './Components/Header/Header.scss';
-  @import './Pages/Users/Users.scss';
-  @import './Pages/Slidebar.scss';
-  @import './Pages/Categories/Categories.scss';
-  
-  * {
+    font-family: 'Shabnam';
+    src: url('/fonts/shabnam/Shabnam-Bold-FD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Shabnam';
+    src: url('/fonts/shabnam/Shabnam-Light-FD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Sahel';
+    src: url('/fonts/sahel/Sahel-FD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Gandom';
+    src: url('/fonts/gandom/Gandom-FD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Nahid';
+    src: url('/fonts/nahid/Nahid-FD.woff') format('woff');
+}
+
+@import './Scss/Main.scss';
+@import './Scss/Header.scss';
+@import './Scss/Users.scss';
+@import './Scss/Slidebar.scss';
+@import './Scss/Categories.scss';
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
     direction: rtl;
     font-size: 16px;
     font-family: shabnam;
-  }
-  .container-fluid {
+}
+
+.container-fluid {
     display: flex;
     background-color: #272C4A;
-    
 }
 
 h1,
@@ -62,23 +57,24 @@ main {
     width: 100%;
     padding: 20px;
 }
-  // 
-  .App {
+
+// 
+.App {
     text-align: center;
-  }
-  
-  .App-logo {
+}
+
+.App-logo {
     height: 40vmin;
     pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
+}
+
+@media (prefers-reduced-motion: no-preference) {
     .App-logo {
-      animation: App-logo-spin infinite 20s linear;
+        animation: App-logo-spin infinite 20s linear;
     }
-  }
-  
-  .App-header {
+}
+
+.App-header {
     background-color: #0f1114;
     min-height: 100vh;
     display: flex;
@@ -87,23 +83,17 @@ main {
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-  }
-  
-  .App-link {
+}
+
+.App-link {
     color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
+}
+
+@keyframes App-logo-spin {
     from {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  
-  
-  
-  
-
- 
+}
