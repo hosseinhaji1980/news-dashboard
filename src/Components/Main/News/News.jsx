@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import './News.scss';
 import Categories from '../CategoryList';
+import DatePickerFa from '../../DatePickerPersian';
+import { createNews } from '../../../Services/newsService';
+import Classification from '../../Classification';
+
 function App() {
   const [formData, setFormData] = useState({
     title: '',
-    date: '',
+    publish_date: '',
     content: '',
     summary: '',
     translation: '',
     keywords: '',
-    category: ''
+    categoryId: '',
+    classificationId: ''
   });
 
   const handleChange = (e) => {
@@ -19,9 +24,44 @@ function App() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleCategoryChange = (categoryId) => {
+    setFormData({
+      ...formData,
+      categoryId
+    });
+  };
+
+  const handleClassificationChange = (classificationId) => {
+    setFormData({
+      ...formData,
+      classificationId
+    });
+  };
+
+  const handleDateChange = (publish_date) => {
+    setFormData({
+      ...formData,
+      publish_date
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      const response = await createNews(formData);
+      setFormData({
+        title: '',
+        publish_date: '',
+        content: '',
+        summary: '',
+        translation: '',
+        keywords: '',
+        categoryId: '',
+        classificationId: ''
+      });
+    } catch (error) {
+      console.error('Error creating news:', error);
+    }
   };
 
   return (
@@ -29,52 +69,41 @@ function App() {
       <form className="form" onSubmit={handleSubmit}>
         <h1 className="title">ورود خبر</h1>
         <div className="row">
-          <div className="col">
+          <div className="col-xl-8">
             <label className="label">موضوع خبر:
               <input type="text" name="title" className="input" value={formData.title} onChange={handleChange} />
             </label>
           </div>
-          <div className="col-xl-3">
+          <div className="col-xl-2">
+            <label className="label">طبقه بندی خبر:
+              <Classification onChange={handleClassificationChange} />
+            </label>
+          </div>
+          <div className="col-xl-2">
             <label className="label">تاریخ خبر:
-              <input type="date" name="date" className="input" value={formData.date} onChange={handleChange} />
+              <DatePickerFa onChange={handleDateChange} />
             </label>
           </div>
         </div>
         <div className="row">
+          <label className="label">متن خبر:
+            <textarea className="textarea" name="content" value={formData.content} onChange={handleChange}></textarea>
+          </label>
           <div className="col-8">
-            <label className="label">
-              متن خبر:
+            <label className="label">چکیده:
+              <textarea className="textarea" name="summary" value={formData.summary} onChange={handleChange}></textarea>
             </label>
-              <textarea className="textarea" name="content" value={formData.content} onChange={handleChange}></textarea>
           </div>
           <div className="col-4">
-            <label className="label">
-              متن خبر:
+            <label className="label">دسته بندی:
+              <Categories onChange={handleCategoryChange} />
             </label>
-            <Categories/>
           </div>
         </div>
-        <label className="label">
-          چکیده:
-          <textarea className="textarea" name="summary" value={formData.summary} onChange={handleChange}></textarea>
-        </label>
-        <label className="label">
-          ترجمه:
+        <label className="label">ترجمه:
           <textarea className="textarea" name="translation" value={formData.translation} onChange={handleChange}></textarea>
         </label>
-        <label className="label">
-          دسته بندی:
-          <select className="select" name="category" value={formData.category} onChange={handleChange}>
-            <option value="">انتخاب کنید</option>
-            <option value="فارسی">فارسی</option>
-            <option value="بی بی سی">بی بی سی</option>
-            <option value="ایران اینترنشنال">ایران اینترنشنال</option>
-            <option value="انگلیسی">انگلیسی</option>
-            <option value="رویترز">رویترز</option>
-          </select>
-        </label>
-        <label className="label">
-          واژگان کلیدی:
+        <label className="label">واژگان کلیدی:
           <input type="text" className="input" name="keywords" value={formData.keywords} onChange={handleChange} />
         </label>
         <div className="button-group">
