@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Users.scss';
+import '../../Scss/Users.scss';
 import CreateUser from './CreateUsers';
 import GetUsers from './GetUsers';
 import { getAllUsers } from '../../Services/Users';
